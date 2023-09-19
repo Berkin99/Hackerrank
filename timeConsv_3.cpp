@@ -39,7 +39,11 @@ time_s stotime(string s) {
 }
 
 string timetos(time_s tim, bool ampm = false) {
-    if (ampm) {
+    if (ampm){
+        if(tim.t[3]==0){
+            if(tim.t[0]<12)
+            return tim.get_stim().substr(2,6)+"PM";
+        }
         return tim.get_stim();
     }
     else {
